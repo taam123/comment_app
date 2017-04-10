@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8" />
+    <title>theme1-home</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/select2.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}" type="text/css" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/angular/angular.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/select2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    {% comment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">{% endcomment %}
+
+    <!-- Latest compiled and minified JavaScript -->
+    {% comment %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>{% endcomment %}
+
+    <!--[if IE]>
+		<link href="ie.css" rel="stylesheet" type="text/css" />
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+</head>
+
+<body ng-app>
+    {% comment "" %} {% verbatim %}
+    <div class="container">
+        <h1>ALHAMDULILLAH</h1>
+        <span> <i class="fa fa-fire"></i> result is</span>{{ 2+4 }}
+    </div>
+    {% endverbatim %} {% endcomment %}
+    <nav class="navbar navbar-default navbar-fixed-top text-capitalize">
+        <section class="container">
+            <div class="navbar-header">
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <a href="" class="navbar-brand">
+                    student
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'index' %}">home</a></li>
+                    <li><a href="">about us</a></li>
+                    <li><a href="">contact us</a></li>
+                    <li><a href="{% url 'candidate:dashboard' %}">candidate dashboard</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'account_logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'account_login' %}"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </section>
+    </nav>
+
+    <section class="container-fluid" id="main-content">
+        <section class="row">
+            <div class="col-md-2" id="side-menu">
+                <ul>
+                    <li>
+                        <a class="show" href="">
+                            <span class="glyphicon glyphicon-home"></span>
+                            <small style="color:#F1BE18;">candidate</small>
+                        </a>
+                        <ul class="inner-ul">
+                            <li class="inner-ul-li li-heading text-capitalize text-center">
+                                <div class="half pull-left half-active">
+                                    <span class="glyphicon glyphicon-plus"></span> create
+                                </div>
+                                <div class="half pull-left">
+                                    <span class="glyphicon glyphicon-eye-open"></span> view
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="show" href=""><span class="glyphicon glyphicon-dashboard"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-fire"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-glass"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-filter"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-folder-open"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-grain"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-glass"></span></a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-trash"></span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-10" id="content-area">
+                <p class="lead alert alert-info text-capitalize">
+                    <span class="glyphicon glyphicon-home"></span> {% block page-header %} home {% endblock page-header %}
+                </p>
+                {% block content %}
+                <select name="" id="" class="select2" style="width:100%;">
+                    <option value="">kajlfd</option>
+                    <option value="">kajlfd</option>
+                    <option value="">kajlfd</option>
+                    <option value="">kajlfd</option>
+                    
+                </select>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt repudiandae libero voluptatibus, ipsum quia ducimus inventore voluptatem nobis consequatur est placeat, non illo eaque voluptate. Quos provident, ducimus perferendis dolorem. Lorem ipsum
+                    dolor sit amet, consectetur adipisicing elit. Deserunt repudiandae libero voluptatibus, ipsum quia ducimus inventore voluptatem nobis consequatur est placeat, non illo eaque voluptate. Quos provident, ducimus perferendis dolorem. Lorem
+                    ipsum dolor sit amet, consectetur adipisicing elit. Deserunt repudiandae libero voluptatibus, ipsum quia ducimus inventore voluptatem nobis consequatur est placeat, non illo eaque voluptate. Quos provident, ducimus perferendis dolorem.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt repudiandae libero voluptatibus, ipsum quia ducimus inventore voluptatem nobis consequatur est placeat, non illo eaque voluptate. Quos provident, ducimus perferendis
+                    dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt repudiandae libero voluptatibus, ipsum quia ducimus inventore voluptatem nobis consequatur est placeat, non illo eaque voluptate. Quos provident, ducimus perferendis
+                    dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt repudiandae libero voluptatibus, ipsum quia ducimus inventore voluptatem nobis consequatur est placeat, non illo eaque voluptate. Quos provident, ducimus perferendis
+                    dolorem.
+                </p>
+                {% endblock %}
+            </div>
+        </section>
+    </section>
+
+</body>
+
+</html>

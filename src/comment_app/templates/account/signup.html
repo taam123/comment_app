@@ -1,0 +1,112 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block content %}
+{% load staticfiles %}
+<span id="signup_bg"> </span>
+<style type="text/css">
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: #fff;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	  color: #fff;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	  color: #fff;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	  color: #fff;
+	}
+	input:-webkit-autofill {
+	    -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset;
+	}
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+	    transition: background-color 5000s ease-in-out 0s;
+	}
+</style>
+<div class="col-md-10 col-sm-12 wrap no_bg">
+	<div class="col-md-6 col-sm-6 col-xs-12">
+		<div class="signuup_form">
+			<h1><a href="{% url 'frontend:dashboard' %}" ><img src="{% static 'images/header-log.png' %}" alt="image" title="Allstream" /></a></h1>
+			<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+				{% csrf_token %}
+				<p class="form-group username">
+					<label for="">Username</label>
+					 <input type="text" name="username" class="text" placeholder="Username" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" required/>
+				      {% if form.username.errors %}
+				      <span class="error">{{ form.username.errors.as_text }}</span>
+				      {% endif %}
+				</p>
+				<p class="form-group email">
+					<label for="">Email</label>
+					<input type="email" name="email" class="text" placeholder="Email Address" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" required/>
+					{% if form.email.errors %}
+					<span class="error">{{ form.email.errors.as_text }}</span>
+					{% endif %}
+				</p>
+				<p class="form-group password">
+					<label for="">Password</label>
+					<input type="password" name="password1" class="text" placeholder="Password" required/>
+					{% if form.password1.errors %}
+					<span class="error">{{ form.password1.errors.as_text }}</span>
+					{% endif %}
+				</p>
+				<p class="form-group password2">
+					<label for="">Confirm Password</label>
+					<input type="password" name="password2" class="text" placeholder="Password Again" required/>
+					{% if form.password2.errors %}
+					<span class="error">{{ form.password2.errors.as_text }}</span>
+					{% endif %}
+				</p>
+				<div class="user_type row">
+					{% for radio in form.choice %}
+					<div class="col-md-6">
+						{{ radio.tag }}
+						<label for="{{ radio.id_for_label }}"> {{ radio.choice_label }}</label>
+					</div>
+					{% endfor %}
+				</div>
+				<div>
+					<div>
+						{{ form.captcha.errors }}
+					</div>
+					{{ form.captcha }}
+				</div>
+				{% if redirect_field_value %}
+				<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+				{% endif %}
+				<button type="submit" class="button">
+					{% trans "Sign Up" %}
+				</button>
+			</form>
+		</div>
+		<p class="white">
+			{% blocktrans %}
+				Already have an account? Then please <a href="{{ login_url }}">sign in</a>
+			{% endblocktrans %}
+		</p>
+	</div>
+	<div class="col-md-6 pull-right col-sm-6 col-xs-12">
+		<div class="socila_icons">
+			<h3>Signup Using</h3>
+			{% get_providers as socialaccount_providers %}
+			{% if socialaccount_providers %}
+				<div class="socialaccount_ballot">
+					<ul class="socialaccount_providers">
+						{% include "socialaccount/snippets/provider_list.html" with process="login" %}
+					</ul>
+				</div>
+			{% include "socialaccount/snippets/login_extra.html" %}
+			{% else %}
+			<p class="white">
+				{% blocktrans %}If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+			</p>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

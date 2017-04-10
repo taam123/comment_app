@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
+</head>
+<body>
+    {% load account %}
+    {% load static %}
+    {% user_display user as user_display %}
+    {% load i18n %}
+    {% autoescape off %}
+
+    <table width="100%" style="font-family: 'Raleway', sans-serif; font-weight: 400; line-height: 1.6em;">
+        <tr>
+            <td align="center" valign="top" bgcolor="#f5f5f5" style="background-color:#f5f5f5;">
+                <table width="600" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff" style="padding: 0; box-shadow: 0px 0px 5px #ddd;">
+                    <tr>
+                        <td style="padding:15px 20px; border-bottom: 1px solid #ddd;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <img width="200" height="auto" src="{{ current_site.domain }}{% static 'images/header-log.png' %}" alt="image">
+                                    </td>
+                                    <td align="right" style="font-size: 14px;">
+                                        <a style="text-decoration: none; color: #F4792C; border-right: 1px solid #ddd; padding-right: 10px;" href="{{ current_site.domain }}{% url 'candidate:create_candidate' %}">Post Resumes</a>
+
+                                        <a style="text-decoration: none; color: #F4792C; margin-left: 15px;" href="{{ current_site.domain }}{% url 'company:create_jobpost' %}">Post Jobs</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td style="padding: 40px 20px;">
+                        {% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+                            <p style="margin-bottom: 0;">
+                                Hello from <a style="color: #F4712A; text-decoration: none;" href="{{ site_name }}">{{site_name}}!</a>
+                            </p>
+                            <p>
+                                You're receiving this e-mail because user {{ user_display }} at <a style="color: #F4712A; text-decoration: none;" href="{{ site_domain }}">{{ site_domain }}</a> has given yours as an e-mail address to connect their account.
+                            <p>
+                                To confirm this is correct, go to
+                                <a style="color: #F4712A; text-decoration: none;" href="{{ activate_url }}">
+                                    {{ activate_url }}
+                                </a>
+                            </p>
+                            {% endblocktrans %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="600" border="0" cellspacing="0" cellpadding="0" bgcolor="#F4792C" style="padding: 30px 20px; background-color: #F4792C; color: #fff;">
+                                <tr>
+                                    <tr>
+                                        <td align="center" style="font-weight: 700; padding-bottom: 15px; font-size: 20px ">
+                                            Get in Touch With Us
+                                        </td>
+                                    </tr>
+                                    <td valign="middle" align="center">
+                                        <!-- <a href="" style="text-decoration: none;">
+                                            <img width="40px" src="" />
+                                        </a>
+                                        <a href="" style="text-decoration: none;">
+                                            <img width="40px" src="" />
+                                        </a>
+                                        <a href="" style="text-decoration: none;">
+                                            <img width="40px" src="" />
+                                        </a> -->
+                                        <p style="margin: 0; color: #fff;">
+                                        	<a style="color: #fff; text-decoration: none;" href="mailto:communicate@allstreamjobs.com">communicate@allstreamjobs.com</a>
+                                        </p>
+                                        <p style="margin: 0;">+1-727-495-6510</p>
+                                        <p style="margin: 0;">
+                                            622 Quail Run Dr, Murphy, TX, United States 75094
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    {% endautoescape %}
+</body>
+</html>
