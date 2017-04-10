@@ -1,0 +1,241 @@
+/*
+ Theme Name: Brain Station
+ Theme URI: www.sprdh.com
+ Author: SPRDH
+ Author URI: sprdh.com
+ Description: Brain Station
+ Version: 1.0
+ Tags: brainstation
+ */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-weight: normal;
+    text-decoration: none;
+    outline: none;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after {
+    content: '';
+    content: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+header,
+section,
+article,
+aside,
+nav,
+footer,
+address {
+    display: block;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+p {
+    line-height: 1.6em;
+}
+
+.hidden {
+    display: none;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+br.clear {
+    clear: both;
+    line-height: 0;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin-top: 64px;
+    background-color: #2C3E50;
+    width: 18%;
+    overflow-y: auto;
+}
+
+#sidebar ul li {
+    position: relative;
+    box-shadow: 0 -1px 1px #3b4d5f inset, 0 1px 1px #213345 inset;
+}
+
+#sidebar ul li:before {
+    content: "";
+    width: 3px;
+    background-color: #EE6E73;
+    height: 100%;
+    z-index: -1;
+    transition: 0.4s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#sidebar ul li:hover::before {
+    width: 100%;
+}
+
+#sidebar ul li a {
+    display: inline-block;
+    padding: 10px;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 14px;
+    width: 100%;
+}
+
+#sidebar ul li a span {
+    margin-right: 20px;
+}
+
+#maincontent {
+    background-color: #fff;
+    width: 82%;
+    margin-left: 18%;
+    height: auto;
+}
+
+.bgcf {
+    padding: 20px !important;
+    background-color: #fff;
+    box-shadow: 0 0 10px #e2e2e2;
+}
+
+.pd_50 {
+    padding: 50px !important;
+}
+
+.page_heading {
+    padding: 20px;
+    background: linear-gradient( #ccc, #fff);
+    font-size: 20px;
+    margin: 0 -15px;
+    color: #2C3E50;
+}
+
+
+/* label focus color */
+
+.input-field input:focus+label {
+    color: #1565c0 !important;
+}
+
+
+/* label underline focus color */
+
+.row .input-field input:focus {
+    border-bottom: 1px solid #1565c0 !important;
+    box-shadow: 0 1px 0 0 #1565c0 !important
+}
+
+.input-field textarea[class=materialize-textarea]:focus {
+    border-bottom: 1px solid #1565c0;
+    -webkit-box-shadow: 0 1px 0 0 #1565c0;
+    -moz-box-shadow: 0 1px 0 0 #1565c0;
+    box-shadow: 0 1px 0 0 #1565c0;
+}
+
+.input-field textarea[class=materialize-textarea]:focus+label {
+    color: #1565c0;
+}
+
+.mb_40 {
+    margin-bottom: 40px;
+}
